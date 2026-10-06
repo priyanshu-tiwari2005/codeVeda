@@ -1,298 +1,644 @@
-# CodeChemy
+# 🚀 CodeVeda
 
-CodeChemy is a full-stack coding analytics and interview-preparation platform built around LeetCode data. It helps users track their problem-solving progress, review recent submissions, compare rankings with friends, work through company-specific question sheets, and use AI assistance for hints, code review, and optimal-solution guidance.
+**CodeVeda** is a full-stack coding analytics and interview-preparation platform designed to help developers improve their problem-solving skills, track coding progress, practice company-specific problems, and prepare effectively for technical interviews.
 
-## Features
+The platform combines **LeetCode progress tracking, coding analytics, company-wise problem sheets, friend comparison, and AI-powered coding assistance** in one place.
 
-- User authentication with JWT-based protected routes.
-- LeetCode profile linking and syncing through LeetCode's public GraphQL data.
-- Dashboard for solved counts, acceptance rates, topic breakdowns, badges, streaks, contest stats, and recent submissions.
-- Activity heatmap and contest rating visualizations.
-- Recent submission detail view with optional private code fetching through an encrypted LeetCode session cookie.
-- AI code review, hint generation, AI coach, and optimal solution generation.
-- Company-wise problem sheets for Amazon, Google, Microsoft, Salesforce, JPMorgan, Goldman Sachs, Atlassian, Flipkart, Expedia, DeShaw, Amex, and Wells Fargo.
-- Per-user company sheet progress tracking.
-- Friend management and LeetCode stat comparison.
-- Light/dark theme support.
-- Secure backend defaults with Helmet, CORS allowlists, request limits, password hashing, and encrypted session-cookie storage.
+---
 
-## Tech Stack
+## ✨ Features
 
-### Frontend
+* 🔐 **User Authentication**
 
-- React 19
-- Vite
-- React Router
-- Axios
-- Tailwind CSS
-- Recharts
-- Lucide React
-- React Syntax Highlighter
-- `@uiw/react-textarea-code-editor`
+  * JWT-based authentication
+  * Secure password hashing
+  * Protected routes
 
-### Backend
+* 🧑‍💻 **LeetCode Profile Integration**
 
-- Node.js
-- Express
-- MongoDB with Mongoose
-- JWT authentication
-- bcryptjs password hashing
-- Helmet and CORS
-- express-rate-limit
-- LeetCode GraphQL integration
-- Groq SDK
-- Google GenAI SDK
-- NodeCache
-- csv-parse
+  * Link your LeetCode username
+  * Synchronize coding statistics
+  * Track solved problems and recent submissions
 
-## Project Structure
+* 📊 **Coding Analytics Dashboard**
+
+  * Total problems solved
+  * Acceptance rate
+  * Topic-wise problem distribution
+  * Coding streak
+  * Badges
+  * Contest statistics
+  * Recent submissions
+
+* 📅 **Activity & Progress Tracking**
+
+  * Coding activity heatmap
+  * Submission history
+  * Contest rating visualization
+  * Personal progress monitoring
+
+* 🏢 **Company-Wise Coding Sheets**
+
+  * Practice problems from companies such as:
+
+    * Amazon
+    * Google
+    * Microsoft
+    * Salesforce
+    * JPMorgan
+    * Goldman Sachs
+    * Atlassian
+    * Flipkart
+    * Expedia
+    * DE Shaw
+    * American Express
+    * Wells Fargo
+
+* ✅ **Problem Progress Tracking**
+
+  * Track solved problems
+  * Maintain individual progress for company-specific sheets
+  * Search and filter problems
+
+* 👥 **Friends & Comparison**
+
+  * Add friends using their LeetCode usernames
+  * Compare coding statistics
+  * Track relative progress
+
+* 🤖 **AI Coding Assistant**
+
+  * AI-powered code review
+  * Coding hints
+  * Optimal solution suggestions
+  * AI coding coach
+
+* 🌓 **Theme Support**
+
+  * Light mode
+  * Dark mode
+
+* 🔒 **Security**
+
+  * Password hashing
+  * JWT authentication
+  * Protected API routes
+  * Rate limiting
+  * CORS protection
+  * Secure environment variables
+  * Encrypted sensitive session data
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+
+* React 19
+* Vite
+* React Router
+* Axios
+* Tailwind CSS
+* Recharts
+* Lucide React
+* React Syntax Highlighter
+* `@uiw/react-textarea-code-editor`
+
+## Backend
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JWT
+* bcryptjs
+* Helmet
+* CORS
+* express-rate-limit
+* NodeCache
+
+## APIs & AI
+
+* LeetCode GraphQL API
+* Groq SDK
+* Google Gemini API
+* Axios
+
+---
+
+# 📁 Project Structure
 
 ```text
-CodeChemy/
-|-- client/                     # React + Vite frontend
-|   |-- public/                 # Static icons and favicon
-|   `-- src/
-|       |-- api/                # Axios API client
-|       |-- assets/             # Frontend images/assets
-|       |-- components/         # Layout and dashboard components
-|       |-- context/            # Auth, theme, and sync contexts
-|       `-- pages/              # App pages/routes
-|-- server/                     # Express backend API
-|   `-- src/
-|       |-- config/             # Database connection
-|       |-- middleware/         # Auth middleware
-|       |-- models/             # Mongoose models
-|       |-- routes/             # API routes
-|       |-- seeds/              # Company problem CSV import scripts/data
-|       `-- services/           # LeetCode, AI, and encryption services
-|-- Company Sheet/              # Source company CSV sheets
-|-- package.json                # Root dependency placeholder
-`-- README.md
+CodeVeda/
+│
+├── client/                         # React + Vite frontend
+│   ├── public/                     # Static files and icons
+│   └── src/
+│       ├── api/                    # API configuration
+│       ├── assets/                 # Images and frontend assets
+│       ├── components/             # Reusable UI components
+│       ├── context/                # Authentication and theme context
+│       └── pages/                  # Application pages
+│
+├── server/                         # Express backend
+│   └── src/
+│       ├── config/                 # Database configuration
+│       ├── middleware/             # Authentication middleware
+│       ├── models/                 # MongoDB/Mongoose models
+│       ├── routes/                 # API routes
+│       ├── seeds/                  # Company problem seed data
+│       └── services/               # LeetCode, AI and utility services
+│
+├── Company Sheet/                  # Company-wise problem data
+│
+├── package.json
+└── README.md
 ```
 
-## Getting Started
+---
 
-### Prerequisites
+# ⚙️ Getting Started
 
-- Node.js 18 or newer
-- npm
-- MongoDB Atlas database or a local MongoDB instance
-- Groq API key for AI review/hint features
-- Optional: Gemini API key if you use the Gemini service
+## Prerequisites
 
-### 1. Clone the Repository
+Before running CodeVeda, make sure you have:
+
+* Node.js 18 or newer
+* npm
+* MongoDB Atlas or local MongoDB
+* Groq API key for AI features
+* Google Gemini API key (optional)
+
+---
+
+## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/codechemy.git
-cd codechemy
+git clone https://github.com/YOUR-USERNAME/CodeVeda.git
+cd CodeVeda
 ```
 
-### 2. Install Dependencies
+Replace `YOUR-USERNAME` with your GitHub username.
 
-Install backend dependencies:
+---
+
+## 2. Install Backend Dependencies
 
 ```bash
 cd server
 npm install
 ```
 
-Install frontend dependencies:
+---
+
+## 3. Install Frontend Dependencies
+
+Open another terminal or return to the project root:
 
 ```bash
 cd ../client
 npm install
 ```
 
-### 3. Configure Environment Variables
+---
 
-Create `server/.env`:
+# 🔑 Environment Variables
+
+## Backend
+
+Create:
+
+```text
+server/.env
+```
+
+Add:
 
 ```env
 PORT=5002
+
 MONGODB_URI=your_mongodb_connection_string
+
 JWT_SECRET=your_long_random_jwt_secret
+
 ENCRYPTION_KEY=your_long_random_encryption_key
+
 GROQ_API_KEY=your_groq_api_key
-GEMINI_API_KEY=your_gemini_api_key_optional
+
+GEMINI_API_KEY=your_gemini_api_key
+
 CLIENT_URL=http://localhost:5173
 ```
 
-Create `client/.env` if you want to override the deployed API URL:
+## Frontend
+
+Create:
+
+```text
+client/.env
+```
+
+Add:
 
 ```env
 VITE_API_URL=http://localhost:5002/api
 ```
 
-Important local-development note: the frontend API client routes localhost traffic to `http://localhost:5002/api`, while the backend falls back to port `5000` if `PORT` is not set. Set `PORT=5002` in `server/.env` for the smoothest local setup.
+> ⚠️ Never commit `.env` files or real API keys to GitHub.
 
-### 4. Seed Company Problem Data
+---
 
-From the `server` directory:
+# 🗄️ Database Setup
+
+Make sure MongoDB is running or your MongoDB Atlas database is accessible.
+
+From the `server` directory, run:
 
 ```bash
 npm run seed
 ```
 
-This imports the CSV files from `server/src/seeds/company-csv-data` into MongoDB.
+This imports the company-specific coding problems into MongoDB.
 
-### 5. Run the App Locally
+---
 
-Start the backend:
+# ▶️ Running CodeVeda
+
+CodeVeda has two parts:
+
+```text
+Frontend → React + Vite
+Backend  → Node.js + Express
+```
+
+## Start Backend
+
+From:
+
+```text
+server/
+```
+
+run:
 
 ```bash
-cd server
 npm run dev
 ```
 
-Start the frontend in another terminal:
+The backend will normally run on:
+
+```text
+http://localhost:5002
+```
+
+## Start Frontend
+
+Open another terminal and go to:
 
 ```bash
 cd client
+```
+
+Then:
+
+```bash
 npm run dev
 ```
 
-Open the Vite URL shown in your terminal, usually:
+The frontend will normally be available at:
 
 ```text
 http://localhost:5173
 ```
 
-## Available Scripts
+---
 
-### Backend
+# 📜 Available Scripts
+
+## Backend
 
 Run from `server/`:
 
 ```bash
-npm run dev      # Start API with Node watch mode
-npm start        # Start API normally
-npm run seed     # Import company problem CSV data
+npm run dev
 ```
 
-### Frontend
+Starts the backend in development mode.
+
+```bash
+npm start
+```
+
+Starts the backend normally.
+
+```bash
+npm run seed
+```
+
+Imports company problem data into MongoDB.
+
+## Frontend
 
 Run from `client/`:
 
 ```bash
-npm run dev      # Start Vite dev server
-npm run build    # Build production frontend
-npm run preview  # Preview production build
-npm run lint     # Run ESLint
+npm run dev
 ```
 
-## Environment Variables
+Starts the Vite development server.
 
-| Variable | Location | Required | Description |
-| --- | --- | --- | --- |
-| `PORT` | `server/.env` | Recommended | Backend port. Use `5002` for local frontend compatibility. |
-| `MONGODB_URI` | `server/.env` | Yes | MongoDB connection string. |
-| `JWT_SECRET` | `server/.env` | Yes | Secret used to sign auth tokens. |
-| `ENCRYPTION_KEY` | `server/.env` | Yes | Secret used to encrypt LeetCode session cookies. |
-| `GROQ_API_KEY` | `server/.env` | Yes for AI features | API key used by Groq-powered review, hint, coach, and optimal-solution flows. |
-| `GEMINI_API_KEY` | `server/.env` | Optional | API key for Gemini service usage. |
-| `CLIENT_URL` | `server/.env` | Optional | Single allowed frontend origin for CORS. |
-| `CLIENT_URLS` | `server/.env` | Optional | Comma-separated allowed frontend origins for CORS. |
-| `VITE_API_URL` | `client/.env` | Optional | Frontend API base URL for non-localhost environments. |
+```bash
+npm run build
+```
 
-## API Overview
+Creates a production build.
 
-Base URL:
+```bash
+npm run preview
+```
+
+Previews the production build.
+
+```bash
+npm run lint
+```
+
+Runs ESLint.
+
+---
+
+# 🔌 API Overview
+
+Base API URL:
 
 ```text
 http://localhost:5002/api
 ```
 
-### Auth
+## Authentication
 
-- `POST /auth/register` - create a new account.
-- `POST /auth/login` - log in and receive a JWT.
-- `GET /auth/me` - fetch the authenticated user.
+```text
+POST /auth/register
+```
 
-### User and LeetCode Sync
+Create a new user account.
 
-- `PUT /user/leetcode-link` - link a LeetCode username.
-- `PATCH /user/leetcode-username` - set username and trigger background sync.
-- `PUT /user/leetcode-session` - store an encrypted LeetCode session cookie.
-- `POST /user/sync` - sync profile stats and recent submissions.
+```text
+POST /auth/login
+```
 
-### Dashboard
+Authenticate an existing user.
 
-- `GET /dashboard/overview` - profile summary and dashboard metrics.
-- `GET /dashboard/heatmap` - submission calendar and streak data.
-- `GET /dashboard/recent-submissions` - latest stored accepted submissions.
-- `GET /dashboard/ai-coach` - AI coaching for the latest accepted problem.
+```text
+GET /auth/me
+```
 
-### Submissions
+Retrieve the authenticated user's information.
 
-- `GET /submissions/:submissionId` - fetch stored submission details and optionally submitted code.
+---
 
-### Companies
+## LeetCode Integration
 
-- `GET /companies` - list companies with problem counts.
-- `GET /companies/:companyName/problems` - list company problems with pagination, difficulty filter, and search.
-- `GET /companies/:companyName/statuses` - fetch solved statuses for a user.
-- `POST /companies/:companyName/problems/:problemSlug/toggle` - toggle solved status.
+```text
+PUT /user/leetcode-link
+```
 
-### AI
+Link a LeetCode username.
 
-- `POST /ai/review` - generate an AI code review.
-- `POST /ai/hint` - generate a hint, including follow-up context.
-- `POST /ai/optimal` - generate an optimal solution for a problem.
+```text
+PATCH /user/leetcode-username
+```
 
-### Friends
+Update the user's LeetCode username and trigger synchronization.
 
-- `GET /friends` - list saved friends.
-- `POST /friends` - add a friend by LeetCode username.
-- `DELETE /friends/:friendId` - remove a friend.
-- `GET /friends/:friendId/compare` - compare LeetCode stats.
+```text
+POST /user/sync
+```
 
-## Data Model Summary
+Synchronize LeetCode profile information and recent submissions.
 
-- `User` stores account data, linked LeetCode username, encrypted LeetCode session cookie, and sync timestamps.
-- `ProfileSnapshot` stores synced LeetCode profile, contest, topic, badge, and calendar data.
-- `SubmissionRecord` stores recent accepted submissions and optionally fetched submission code.
-- `CompanyProblem` stores company-tagged coding problems imported from CSV.
-- `UserProblemStatus` stores per-user solved status for company sheets.
-- `Friend` stores user-managed LeetCode friends and cached comparison stats.
-- `AIInteractionLog` exists as a model, while current AI route history is kept in memory with `NodeCache` to reduce database storage usage.
+---
 
-## Security Notes
+## Dashboard
 
-- Passwords are hashed before storage.
-- API routes that require identity are protected with JWT middleware.
-- LeetCode session cookies are encrypted before being stored.
-- API requests are rate-limited globally, with stricter limits for AI routes.
-- CORS is restricted to local development URLs, configured client URLs, and deployed project URLs.
-- Do not commit `.env` files or real API keys.
+```text
+GET /dashboard/overview
+```
 
-## Deployment
+Retrieve dashboard statistics.
 
-One common deployment setup is:
+```text
+GET /dashboard/heatmap
+```
 
-- Frontend: Netlify, Vercel, or any static hosting provider.
-- Backend: Render, Railway, Fly.io, or another Node-compatible host.
-- Database: MongoDB Atlas.
+Retrieve coding activity data.
 
-Deployment checklist:
+```text
+GET /dashboard/recent-submissions
+```
 
-1. Set all required backend environment variables on your server host.
-2. Set `CLIENT_URL` or `CLIENT_URLS` to your deployed frontend origin.
-3. Set `VITE_API_URL` in the frontend build environment to your deployed backend API URL, ending in `/api`.
-4. Run `npm run build` inside `client/`.
-5. Run `npm start` inside `server/`.
-6. Seed company data once in the production database with `npm run seed`.
+Retrieve recent submissions.
 
-## Contributing
+```text
+GET /dashboard/ai-coach
+```
 
-Contributions are welcome. A good workflow is:
+Generate AI coaching information for recent coding activity.
 
-1. Fork the repository.
-2. Create a feature branch.
-3. Install dependencies in both `client` and `server`.
-4. Make your changes.
-5. Run lint/build checks.
-6. Open a pull request with a clear description of the change.
+---
 
-## License
+## Company Problems
 
-No license file is currently included. Add a license before publishing if you want to define how others may use, modify, or distribute this project.
+```text
+GET /companies
+```
+
+Retrieve available companies.
+
+```text
+GET /companies/:companyName/problems
+```
+
+Retrieve company-specific coding problems.
+
+```text
+GET /companies/:companyName/statuses
+```
+
+Retrieve the user's progress for a company sheet.
+
+```text
+POST /companies/:companyName/problems/:problemSlug/toggle
+```
+
+Update the solved status of a problem.
+
+---
+
+## AI Features
+
+```text
+POST /ai/review
+```
+
+Generate an AI code review.
+
+```text
+POST /ai/hint
+```
+
+Generate a coding hint.
+
+```text
+POST /ai/optimal
+```
+
+Generate an optimized solution approach.
+
+---
+
+## Friends
+
+```text
+GET /friends
+```
+
+Retrieve saved friends.
+
+```text
+POST /friends
+```
+
+Add a friend using their LeetCode username.
+
+```text
+DELETE /friends/:friendId
+```
+
+Remove a friend.
+
+```text
+GET /friends/:friendId/compare
+```
+
+Compare LeetCode statistics.
+
+---
+
+# 🗃️ Data Models
+
+CodeVeda uses MongoDB with Mongoose.
+
+Main models include:
+
+* **User** — User account and authentication information
+* **ProfileSnapshot** — LeetCode profile and statistics
+* **SubmissionRecord** — Recent accepted submissions
+* **CompanyProblem** — Company-specific coding problems
+* **UserProblemStatus** — Individual problem-solving progress
+* **Friend** — Saved LeetCode friends and comparison data
+* **AIInteractionLog** — AI interaction information
+
+---
+
+# 🔐 Security
+
+CodeVeda follows several security practices:
+
+* Passwords are hashed using bcrypt
+* Authentication uses JWT
+* Protected API routes require authentication
+* API requests are rate-limited
+* Helmet is used for security headers
+* CORS is configured for allowed origins
+* Sensitive environment variables are kept outside source control
+* Sensitive session information is encrypted before storage
+
+> Never commit API keys, database credentials, JWT secrets, or `.env` files to GitHub.
+
+---
+
+# 🚀 Deployment
+
+CodeVeda can be deployed using:
+
+### Frontend
+
+* Vercel
+* Netlify
+* Other static hosting platforms
+
+### Backend
+
+* Render
+* Railway
+* Fly.io
+* Other Node.js hosting platforms
+
+### Database
+
+* MongoDB Atlas
+
+### Deployment Steps
+
+1. Configure backend environment variables.
+2. Configure the frontend API URL.
+3. Set the deployed frontend URL in the backend CORS configuration.
+4. Build the frontend:
+
+```bash
+cd client
+npm run build
+```
+
+5. Start the backend:
+
+```bash
+cd server
+npm start
+```
+
+6. Seed the production database if required:
+
+```bash
+npm run seed
+```
+
+---
+
+# 🎯 Future Improvements
+
+Some planned improvements for CodeVeda include:
+
+* 📚 Spaced-repetition based problem revision
+* 📈 Advanced coding performance analytics
+* 🏆 Leaderboards and achievement system
+* 📅 Personalized interview preparation roadmap
+* 🔔 Revision and interview reminders
+* 🧠 Improved AI coding coach
+* 📱 Mobile-friendly progressive web application
+* 📊 More detailed company-wise preparation analytics
+
+---
+
+# 👨‍💻 Author
+
+**Priyanshu Tiwari**
+
+B.Tech Computer Science Engineering Student
+
+GitHub: `priyanshu-tiwari2005`
+
+---
+
+# ⭐ Support
+
+If you find CodeVeda useful, consider giving the repository a ⭐ on GitHub.
+
+---
+
+## 📄 License
+
+This project currently does not include a license.
+
+If you plan to distribute or publish the project, add an appropriate open-source license after reviewing the licensing requirements of the original project and its dependencies.
